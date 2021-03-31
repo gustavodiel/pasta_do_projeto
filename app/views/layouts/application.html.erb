@@ -13,6 +13,17 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= yield %>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <div class="d-flex justify-content-center">
+      <%= yield %>
+    </div>
   </body>
 </html>
