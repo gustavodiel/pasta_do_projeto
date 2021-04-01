@@ -15,7 +15,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :password, 'Senha' %> <i>(deixe em branco se não quiser alterar)</i><br />
+      <%= f.label :password, 'Senha' %> <i>(deixe em branco se não quiser alterar)</i>
       <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
       <% if @minimum_password_length %>
         <small id="pwHelp" class="form-text text-muted">Mínimo de <%= @minimum_password_length %> characteres</small>
@@ -23,19 +23,26 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation, 'Confirmação de Senha' %><br />
+      <%= f.label :password_confirmation, 'Confirmação de Senha' %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.label :current_password, 'Senha atual' %> <i>(precisamos da senha atual para mudá-la)</i>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :avatar, 'Avatar' %>
+      <%= f.file_field :avatar, class: 'form-control-file' %>
     </div>
 
     <div class="actions">
       <%= f.submit "Atualizar", class: 'btn btn-success' %>
     </div>
   <% end %>
+
+  <hr>
 
   <h2>Cancelamento da conta</h2>
 
