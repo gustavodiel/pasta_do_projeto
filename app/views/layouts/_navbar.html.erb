@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">PastaDoProjeto</a>
+  <%= link_to 'PastaDoProjeto', home_path, class: 'navbar-brand' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,6 +9,11 @@
       <li class="nav-item">
         <%= link_to 'Home', home_path, class: 'nav-link' + (current_page?(home_path) ? ' active' : '') %>
       </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Imagens', images_path, class: 'nav-link' + (current_page?(images_path) ? ' active' : '') %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
