@@ -13,11 +13,11 @@
   <% if devise_mapping.rememberable? %>
     <div class="form-check">
       <%= f.check_box :remember_me, class: 'form-check-input' %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me, 'Lembrar de mim' %>
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="btn-group d-flex">
     <%= f.submit "Entrar", class: 'btn btn-success' %>
   </div>
 <% end %>

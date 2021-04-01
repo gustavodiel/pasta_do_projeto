@@ -29,17 +29,7 @@
   </div>
   </div>
 
-  <div class="actions">
+  <div class="btn-group d-flex">
     <%= form.submit 'Enviar', class: 'btn btn-success' %>
   </div>
-
-  <script>
-      $(document).ready(function(){
-          $('#image_file').on('change',function(){
-              const fileName = $(this).val().split('\\');
-
-              $(this).next('.custom-file-label').html(fileName[fileName.length - 1]);
-          })
-      })
-  </script>
 <% end %>

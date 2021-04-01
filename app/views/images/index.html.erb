@@ -1,18 +1,20 @@
 <div>
-  <h1>Images</h1>
+  <h1 class="text-center">Images</h1>
 
-  <table>
-    <thead>
+  <table class="table table-striped">
+    <thead class="thead-dark">
       <tr>
-        <th colspan="3"></th>
+        <th scope="col">Título</th>
+        <th scope="col">Imagem</th>
+        <th scope="col">Ações</th>
       </tr>
     </thead>
 
     <tbody>
       <% @images.each do |image| %>
         <tr>
+          <th scope="row"><%= image.name %></th>
           <td><%= image_tag image.file.representation(resize_to_limit: [52, 52]) %></td>
-          <td><%= image.name %></td>
           <td>
             <div class="btn-group">
               <%= link_to 'Detalhes', image, class: 'btn btn-primary' %>
@@ -27,5 +29,5 @@
 
   <hr>
 
-  <%= link_to 'Nova imagem', new_image_path, class: 'btn btn-primary' %>
+  <%= link_to 'Nova imagem', new_image_path, class: 'btn btn-primary float-right' %>
 </div>

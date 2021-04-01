@@ -9,6 +9,11 @@
       <li class="nav-item">
         <%= link_to 'Home', home_path, class: 'nav-link' + (current_page?(home_path) ? ' active' : '') %>
       </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Imagens', images_path, class: 'nav-link' + (current_page?(images_path) ? ' active' : '') %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
