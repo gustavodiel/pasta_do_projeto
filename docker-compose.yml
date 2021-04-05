@@ -37,5 +37,20 @@ services:
       RAILS_ENV: development
     entrypoint: ./entrypoints/sidekiq_entrypoint.sh
 
+  cable:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - web
+      - database
+      - redis
+    ports:
+      - '28080:28080'
+    volumes:
+      - .:/app
+    env_file: .env
+    entrypoint: ./entrypoints/cable_entrypoint.sh
+
 volumes:
   postgres:
