@@ -12,5 +12,8 @@ class ImageProcessJob
       detail_color: "##{colors[:detail].hex}",
       background_color: "##{colors[:background].hex}"
     )
+
+    attributes = image.attributes.slice('title', 'primary_color', 'secondary_color', 'detail_color', 'background_color')
+    ImageChannel.broadcast_to(image, attributes)
   end
 end
