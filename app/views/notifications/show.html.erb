@@ -1,0 +1,16 @@
+<div class="toast" role="alert" style="min-width: 300px;" aria-live="assertive" aria-atomic="true" data-autohide="false" id="<%= SecureRandom.uuid %>">
+  <div class="toast-header">
+    <i class="bi bi-image rounded mr-2"></i>
+    <strong class="mr-auto"><%= @notification.title %></strong>
+    <small class="text-muted"><%= time_ago_in_words(@notification.created_at) %></small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    <%= @notification.message.html_safe %>
+    <p>
+      <%= link_to @notification.action_title, @notification.action_url %>
+    </p>
+  </div>
+</div>
