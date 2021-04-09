@@ -2,20 +2,20 @@ class User::PasswordlessLoginController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[login]
 
   def allow_login
-    puts params
     login = Login.find_by(token: params[:token], user: current_user)
 
-    LoginChannel.broadcast_to(login, { url: do_login_url(login.user.id) })
+    LoginChannel.broadcast_to(login, { url: do_login_url(Base64.urlsafe_encode64(login.token)) })
 
-    redirect_to home_path, notice: 'Successfully logged in!'
+    head 200
   end
 
   def login
-    puts params
+    token = Base64.urlsafe_decode64(params[:token])
+    login = Login.find_by!(token: token)
 
-    user = User.find_by(id: params[:id])
+    sign_in(:user, login.user)
 
-    sign_in(:user, user)
+    login.destroy
 
     redirect_to :home
   end
