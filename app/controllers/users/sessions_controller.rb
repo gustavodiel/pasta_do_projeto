@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class User::SessionsController < Devise::SessionsController
-  # POST /resource/sign_in
+class Users::SessionsController < Devise::SessionsController
   def create
     return process_empty_password if passwordless_login?
 
@@ -31,11 +30,11 @@ class User::SessionsController < Devise::SessionsController
 
     cookies.encrypted[:login_token] = login.token
 
-    render 'user/wait_login'
+    render 'users/wait_login'
   end
 
   def passwordless_login?
-    empty_password? && exists_user?
+    empty_password? && exists_user? && request.format.html?
   end
 
   def exists_user?

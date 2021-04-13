@@ -1,4 +1,4 @@
-class User::PasswordlessLoginController < ApplicationController
+class Users::PasswordlessLoginController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[login]
 
   def allow_login

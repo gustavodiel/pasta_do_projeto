@@ -30,6 +30,10 @@ gem 'colorama'
 
 gem 'devise'
 
+gem 'jwt'
+
+gem 'rack-cors'
+
 # Use Active Storage variant
 gem 'active_storage-postgresql'
 gem 'image_processing'
