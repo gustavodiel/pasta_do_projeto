@@ -17,4 +17,15 @@ class Notification
       layout: false
     )
   end
+
+  def json
+    {
+      title: title,
+      message: message,
+      action_title: action_title,
+      action_url: action_url,
+      created_at: created_at,
+      image: image
+    }
+  end
 end

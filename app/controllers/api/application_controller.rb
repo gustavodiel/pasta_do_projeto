@@ -30,8 +30,6 @@ class Api::ApplicationController < ActionController::Base
 
       @current_user_id = jwt_payload['id']
     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError => error
-      puts(error.full_message)
-      puts('Coiaoasisajaosihsooasasoijsoiajoi')
       head :unauthorized
     end
   end

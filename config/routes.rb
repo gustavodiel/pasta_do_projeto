@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   }
 
   namespace :api, defaults: { format: :json } do
-    devise_for :users, controllers: { sessions: 'api/users/sessions' }
+    devise_for :users, controllers: {
+      sessions: 'api/users/sessions',
+      registrations: 'api/users/registrations'
+    }
 
     get 'me', controller: 'users/info', action: :me, as: :user_info
+
+    post 'images', controller: 'images', action: :create, as: :create_images
   end
 
   post 'allow_login/:token', controller: 'user/passwordless_login', action: 'allow_login', as: :allow_login

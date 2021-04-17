@@ -9,7 +9,7 @@ class Api::Users::SessionsController < Devise::SessionsController
     if user&.valid_password?(user_params[:password])
       @current_user = user
     else
-      render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
+      render json: { error: 'Invalid email or password', error_code: 1 }, status: :unprocessable_entity
     end
   end
 
