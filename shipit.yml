@@ -8,5 +8,25 @@ review:
   checks:
     - bundle exec rake db:migrate:status
 
+deploy:
+  override:
+    - ./lib/tasks/deploy.sh
+  variables:
+    -
+      name: CUSTOM_VAR
+      title: Run database migrations on deploy
+      default: "This value!"
+    -
+      name: DEPLOY_ENVIRONMENT
+      title: Run a deploy in a given region
+      select:
+        - prod
+        - staging
+        - review_app
+
+rollback:
+  override:
+    - ./lib/tasks/rollback.sh
+
 merge:
   method: squash
