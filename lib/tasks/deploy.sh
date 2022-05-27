@@ -5,4 +5,4 @@ echo "This is new stuff!!!"
 
 sleep 6
 
-exit 10
+echo Done!
